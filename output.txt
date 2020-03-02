@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/schema#University">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/schema#Name">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://example.org/schema#University"/>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+    <rdfs:range></rdfs:range>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/schema#DBPediaLink">
+    <rdfs:domain rdf:resource="http://example.org/schema#University"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/homepage"/>
+  </rdf:Description>
+</rdf:RDF>
