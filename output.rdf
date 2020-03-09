@@ -1,0 +1,95 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/schema#Course> a rdfs:Class ;
+    rdfs:label "Class for University courses."@en ;
+    rdfs:comment "Classes created for defining courses offered by the university."@en .
+
+<http://example.org/schema#Grade> a rdfs:Class ;
+    rdfs:label "Represents Grade of a student."@en ;
+    rdfs:comment "Represents Grade of a student in a particular course"@en .
+
+<http://example.org/schema#Student> a rdfs:Class ;
+    rdfs:label "Class for Student is a University"@en ;
+    rdfs:comment "Class defined for Students of a corresponding university."@en ;
+    rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> .
+
+<http://example.org/schema#University> a rdfs:Class ;
+    rdfs:label "Class defined for university"@en ;
+    rdfs:comment "This class is used to take information about the university"@en ;
+    rdfs:subClassOf <http://xmlns.com/foaf/0.1/Organization> .
+
+<http://example.org/schema#topic> a rdfs:Class ;
+    rdfs:label "Class for topics of a Course"@en ;
+    rdfs:comment "Class defined for depicting topics of the corresponding course."@en ;
+    rdfs:subClassOf <http://xmlns.com/foaf/0.1/Document> .
+
+<http://example.org/schema#CourseDescription> a rdf:Property ;
+    rdfs:label "Property for Course description"@en ;
+    rdfs:comment "Property defined for storing description of the corresponding course."@en ;
+    rdfs:domain <http://example.org/schema#Course> ;
+    rdfs:range rdfs:Literal .
+
+<http://example.org/schema#CourseName> a rdf:Property ;
+    rdfs:label "Property for Course name"@en ;
+    rdfs:comment "Property defined for storing name of courses offered by the university."@en ;
+    rdfs:domain <http://example.org/schema#Course> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/name> .
+
+<http://example.org/schema#CourseNumber> a rdf:Property ;
+    rdfs:label "Property for Course number"@en ;
+    rdfs:comment "Property defined for storing number of the corresponding course."@en ;
+    rdfs:domain <http://example.org/schema#Course> ;
+    rdfs:range rdfs:Literal .
+
+<http://example.org/schema#CourseSubject> a rdf:Property ;
+    rdfs:label "Property for Course subject"@en ;
+    rdfs:comment "Property defined for storing subject of the corresponding course."@en ;
+    rdfs:domain <http://example.org/schema#Course> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/name> .
+
+<http://example.org/schema#TopicName> a rdf:Property ;
+    rdfs:domain <http://example.org/schema#topic> ;
+    rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/topic> .
+
+<http://example.org/schema#hasDBPediaLink> a rdf:Property ;
+    rdfs:label "Property for DBPedia Link"@en ;
+    rdfs:comment "Property defined for linking University with its dbpedia link."@en ;
+    rdfs:domain <http://example.org/schema#University> ;
+    rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/homepage> .
+
+<http://example.org/schema#hasGrade> a rdf:Property ;
+    rdfs:label "Associating Student and Grade."@en ;
+    rdfs:comment "Associating Student and Grade."@en ;
+    rdfs:domain <http://example.org/schema#Student> ;
+    rdfs:range <http://example.org/schema#Grade> .
+
+<http://example.org/schema#hasGradeValue> a rdf:Property ;
+    rdfs:label "Represents value of a grade."@en ;
+    rdfs:comment "Represents alphabetical grade of a student in a particular course"@en ;
+    rdfs:domain <http://example.org/schema#Grade> ;
+    rdfs:range rdfs:Literal .
+
+<http://example.org/schema#hasID> a rdf:Property ;
+    rdfs:label "Property to link Student IDs"@en ;
+    rdfs:comment "Property to link Student IDs"@en ;
+    rdfs:domain <http://example.org/schema#Student> ;
+    rdfs:range rdfs:Literal .
+
+<http://example.org/schema#hasName> a rdf:Property ;
+    rdfs:label "Property for University Name"@en ;
+    rdfs:comment "Property defined for inputing University Name"@en ;
+    rdfs:domain <http://example.org/schema#University> ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/name> .
+
+<http://example.org/schema#inCourse> a rdf:Property ;
+    rdfs:label "Associating Grade and Course"@en ;
+    rdfs:comment "Associating Grade and Course"@en ;
+    rdfs:domain <http://example.org/schema#Grade> ;
+    rdfs:range <http://example.org/schema#Course> .
+

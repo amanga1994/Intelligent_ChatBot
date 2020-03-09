@@ -5,7 +5,7 @@ from rdflib.namespace import DC, FOAF
 
 
 
-UNIV = Namespace("http://example.org/schema#")
+UNIV = Namespace("http://example.org/schema/")
 # FOCU=Namespace("http://focu.io/schema#")
 # FOCUDATA=Namespace("http://focu.io/data#")
 g = Graph()
@@ -92,6 +92,11 @@ g.add((UNIV.inCourse, RDFS.domain, UNIV.Grade))
 g.add((UNIV.inCourse, RDFS.range, UNIV.Course))
 g.add((UNIV.inCourse, RDFS.label, Literal("Associating Grade and Course", lang="en")))
 g.add((UNIV.inCourse, RDFS.comment, Literal("Associating Grade and Course", lang="en")))
+g.add((UNIV.inTerm, RDF.type, RDF.Property))
+g.add((UNIV.inTerm, RDFS.domain, UNIV.Grade))
+g.add((UNIV.inTerm, RDFS.range, RDFS.Literal))
+g.add((UNIV.inTerm, RDFS.label, Literal("Associating Grade and Term", lang="en")))
+g.add((UNIV.inTerm, RDFS.comment, Literal("Associating Grade and Term", lang="en")))
 g.add((UNIV.hasGrade, RDF.type, RDF.Property))
 g.add((UNIV.hasGrade, RDFS.domain, UNIV.Student))
 g.add((UNIV.hasGrade, RDFS.range, UNIV.Grade))

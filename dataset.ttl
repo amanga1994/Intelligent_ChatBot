@@ -1,0 +1,268 @@
+@prefix ns1: <http://example.org/schema#> .
+@prefix ns2: <http://www.w3.org/2002/07/owl#> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/course/AHSC+225> a ns1:Course ;
+    ns1:courseDescription "This course introduces students to the ways in which theories of learning (including experiential, transformational, integral and action learning) relate to and can inform efforts to bring improvement and change to individuals and groups. The course explores the importance of personal engagement in learning, and illustrates how ongoing reflection strengthens a learning process. It enables students to create clear personal visions, set relevant learning goals, create and organize related activities, and assess their progress. The course provides learning process models and ways to identify personal stylistic differences which affect personal learning progress and strategies." ;
+    ns1:courseName "Principles of Experiential and Action Learning and the Reflective Practitioner" ;
+    ns1:courseNo "225" ;
+    ns1:courseSubject "AHSC" ;
+    ns1:hasTopic <http://example.org/topic/action_learning>,
+        <http://example.org/topic/integral> .
+
+<http://example.org/course/AHSC+230> a ns1:Course ;
+    ns1:courseDescription "This course is designed to provide knowledge and skill in building and maintaining interpersonal relationships characterized by mutual understanding and respect. Students can expect to enhance their understanding of themselves and their personal styles. The course focuses on effective communication behaviour. Students can expect to improve their abilities to attend to verbal and non-verbal communication; exchange constructive feedback with others; address and deal constructively with conflict; and communicate across differences, such as gender and race. Conceptual perspectives include the contextual influences in relationship dynamics and the role of affect in interpersonal communication. The course also examines value considerations." ;
+    ns1:courseName "Interpersonal Communication and Relationships" ;
+    ns1:courseNo "230" ;
+    ns1:courseSubject "AHSC" ;
+    ns1:hasTopic <http://example.org/topic/interpersonal_communication>,
+        <http://example.org/topic/non-verbal_communication> .
+
+<http://example.org/course/AHSC+232> a ns1:Course ;
+    ns1:courseDescription "This course is an introduction to understanding interaction and developmental processes of small groups and skill-building for effective participation. It enables students to learn frameworks for observing a groups process, member roles that facilitate positive group processes and task accomplishment, and models of intervention in small groups. The course provides opportunities for students to integrate the theory they learn with their experiences in a task group." ;
+    ns1:courseName "Working in Task Groups" ;
+    ns1:courseNo "232" ;
+    ns1:courseSubject "AHSC" .
+
+<http://example.org/course/AHSC+241> a ns1:Course ;
+    ns1:courseDescription "This course introduces students to the theories and relationships of play, perceptions of free and discretionary time, concepts of leisure, and the historical foundations for the discipline. The concepts are presented as integral components of todays lifestyle. In addition, the organized recreation system is examined, with an introduction to the leisure services delivery system. The students also examine the role that leisure plays in current societal issues." ;
+    ns1:courseName "Recreation and Leisure in Contemporary Society" ;
+    ns1:courseNo "241" ;
+    ns1:courseSubject "AHSC" ;
+    ns1:hasTopic <http://example.org/topic/integral> .
+
+<http://example.org/course/AHSC+260> a ns1:Course ;
+    ns1:courseDescription "The course prepares students to construct effective interactive programs designed for specific client populations. Using program design principles and practices, students match learning activities to desired program outcomes, while considering participant qualities and contextual features. Emphasis is placed on assessment, design, and evaluation knowledge and skills." ;
+    ns1:courseName "Program Planning, Design and Evaluation" ;
+    ns1:courseNo "260" ;
+    ns1:courseSubject "AHSC" .
+
+<http://example.org/course/AHSC+270> a ns1:Course ;
+    ns1:courseDescription "This course is an introduction to general systems theory and change from an interventionist perspective, as well as an orientation to various unique human systems. It focuses on understanding applied social science research and examines general strategies of intervention and salient models of practice, exposing students to varied domains of application. The course also features attention to values and ethical issues associated with specific practice and intervention strategies and the role of social justice andanti-oppressive approaches." ;
+    ns1:courseName "Introduction to Human Relations Theory and Research" ;
+    ns1:courseNo "270" ;
+    ns1:courseSubject "AHSC" ;
+    ns1:hasTopic <http://example.org/topic/interventionist>,
+        <http://example.org/topic/social_justice>,
+        <http://example.org/topic/social_science>,
+        <http://example.org/topic/systems_theory> .
+
+<http://example.org/course/AHSC+281> a ns1:Course ;
+    ns1:courseDescription "An examination of the fundamental concepts of therapeutic recreation. Included is the study of the historical foundations and the basic terminology, purposes, and theories of therapeutic recreation." ;
+    ns1:courseName "Introduction to Therapeutic Recreation" ;
+    ns1:courseNo "281" ;
+    ns1:courseSubject "AHSC" .
+
+<http://example.org/course/AHSC+298> a ns1:Course ;
+    ns1:courseDescription "Specific topics for this course, and prerequisites relevant in each case, are stated in the Undergraduate Class Schedule." ;
+    ns1:courseName "Selected Topics in Applied Human Sciences" ;
+    ns1:courseNo "298" ;
+    ns1:courseSubject "AHSC" .
+
+<http://example.org/student/Akash> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "B" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ] ;
+    ns1:hasID "40085538" ;
+    ns3:familyName "Singh" ;
+    ns3:givenName "Akash" ;
+    ns3:mbox "akashsingh@gmail.com" .
+
+<http://example.org/student/Aman> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "F" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "B" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ] ;
+    ns1:hasID "40085531" ;
+    ns3:familyName "Garg" ;
+    ns3:givenName "Aman" ;
+    ns3:mbox "amangarg@gmail.com" .
+
+<http://example.org/student/Arpit> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "B" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ] ;
+    ns1:hasID "40085533" ;
+    ns3:familyName "Malhotra" ;
+    ns3:givenName "Arpit" ;
+    ns3:mbox "arpitmalhotra@gmail.com" .
+
+<http://example.org/student/Badal> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "B" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ] ;
+    ns1:hasID "40085537" ;
+    ns3:familyName "Kumar" ;
+    ns3:givenName "Badal" ;
+    ns3:mbox "badalkumar@gmail.com" .
+
+<http://example.org/student/Basant> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ] ;
+    ns1:hasID "40085532" ;
+    ns3:familyName "Gera" ;
+    ns3:givenName "Basant" ;
+    ns3:mbox "basantgera@gmail.com" .
+
+<http://example.org/student/Joe> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "B" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ] ;
+    ns1:hasID "40085530" ;
+    ns3:familyName "Black" ;
+    ns3:givenName "Joe" ;
+    ns3:mbox "joeblack@gmail.com" .
+
+<http://example.org/student/Ofreish> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "B" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ] ;
+    ns1:hasID "40085539" ;
+    ns3:familyName "Talwar" ;
+    ns3:givenName "Ofreish" ;
+    ns3:mbox "otalwar@gmail.com" .
+
+<http://example.org/student/Rohit> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "B" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ] ;
+    ns1:hasID "40085534" ;
+    ns3:familyName "Gupta" ;
+    ns3:givenName "Rohit" ;
+    ns3:mbox "rohitgupta@gmail.com" .
+
+<http://example.org/student/Shubham> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "B" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ] ;
+    ns1:hasID "40085535" ;
+    ns3:familyName "Kumar" ;
+    ns3:givenName "Shubham" ;
+    ns3:mbox "shubhamkumar@gmail.com" .
+
+<http://example.org/student/Sunchit> a ns1:Student ;
+    ns1:enrolledAt <http://example.org/university/Concordia> ;
+    ns1:hasGrade [ a ns1:Grade ;
+            ns1:hasGradeValue "A" ;
+            ns1:inCourse <http://example.org/course/AHSC+220> ;
+            ns1:inTerm "Fall 2020" ],
+        [ a ns1:Grade ;
+            ns1:hasGradeValue "B" ;
+            ns1:inCourse <http://example.org/course/AHSC+223> ;
+            ns1:inTerm "Summer 2020" ] ;
+    ns1:hasID "40085536" ;
+    ns3:familyName "Sehgal" ;
+    ns3:givenName "Sunchit" ;
+    ns3:mbox "sunchitsehgal@gmail.com" .
+
+<http://example.org/topic/action_learning> a ns1:Topic ;
+    ns1:topicName "action_learning" ;
+    ns2:sameAs <http://dbpedia.org/resource/Action_learning> .
+
+<http://example.org/topic/biopsychosocial> a ns1:Topic ;
+    ns1:topicName "biopsychosocial" ;
+    ns2:sameAs <http://dbpedia.org/resource/Biopsychosocial_model> .
+
+<http://example.org/topic/interpersonal_communication> a ns1:Topic ;
+    ns1:topicName "interpersonal_communication" ;
+    ns2:sameAs <http://dbpedia.org/resource/Interpersonal_communication> .
+
+<http://example.org/topic/interventionist> a ns1:Topic ;
+    ns1:topicName "interventionist" ;
+    ns2:sameAs <http://dbpedia.org/resource/Economic_interventionism> .
+
+<http://example.org/topic/non-verbal_communication> a ns1:Topic ;
+    ns1:topicName "non-verbal_communication" ;
+    ns2:sameAs <http://dbpedia.org/resource/Nonverbal_communication> .
+
+<http://example.org/topic/social_justice> a ns1:Topic ;
+    ns1:topicName "social_justice" ;
+    ns2:sameAs <http://dbpedia.org/resource/Social_justice> .
+
+<http://example.org/topic/social_science> a ns1:Topic ;
+    ns1:topicName "social_science" ;
+    ns2:sameAs <http://dbpedia.org/resource/Social_science> .
+
+<http://example.org/topic/systems_theory> a ns1:Topic ;
+    ns1:topicName "systems_theory" ;
+    ns2:sameAs <http://dbpedia.org/resource/Systems_theory> .
+
+<http://example.org/topic/integral> a ns1:Topic ;
+    ns1:topicName "integral" ;
+    ns2:sameAs <http://dbpedia.org/resource/Integral> .
+
+<http://example.org/course/AHSC+220> a ns1:Course ;
+    ns1:courseDescription "This survey course provides an interdisciplinary overview of biopsychosocial patterns of development over the lifespan, from conception to death. Students learn about theories of human development, with an emphasis on typical normative development, and on application of theory to practice. The course material covers key issues in development, major milestones of development, and major life events. In addition, students are given opportunities to think critically and to become better able to interpret and assess research within the field." ;
+    ns1:courseName "Lifespan Growth and Development for Practitioners" ;
+    ns1:courseNo "220" ;
+    ns1:courseSubject "AHSC" ;
+    ns1:hasTopic <http://example.org/topic/biopsychosocial> .
+
+<http://example.org/course/AHSC+223> a ns1:Course ;
+    ns1:courseDescription "This course is designed to provide a theoretical overview of how relationships are formed, sustained, and developed/changed in each stage of human life. A variety of theories and perspectives are explored." ;
+    ns1:courseName "Relationships Across the Lifespan" ;
+    ns1:courseNo "223" ;
+    ns1:courseSubject "AHSC" .
+
+<http://example.org/university/Concordia> a ns1:University ;
+    ns1:hasDBPediaLink <http://dbpedia.org/page/Concordia_University> ;
+    ns1:hasName "Concordia University" .
+
