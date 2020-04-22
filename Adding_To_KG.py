@@ -5,7 +5,7 @@ import spotlight
 import time
 import re
 graph = Graph()
-graph.parse("output.ttl", format="n3")
+graph.parse("rdfSchema.ttl", format="n3")
 UNIV = Namespace("http://example.org/schema#")
 g = Graph()
 u = Namespace("http://example.org/university/")
@@ -13,7 +13,7 @@ g.add((u.Concordia, RDF.type, UNIV.University))
 g.add((u.Concordia, UNIV.hasName, Literal("Concordia University")))
 g.add((u.Concordia, UNIV.hasDBPediaLink, URIRef("http://dbpedia.org/page/Concordia_University")))
 
-with open('maindata.csv') as csv_file:
+with open('data.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
@@ -46,8 +46,6 @@ with open('maindata.csv') as csv_file:
             g.add((x, RDFS.seeAlso, URIRef(" ".join(row[3].split()))))
 
 
-
-
 count=0
 for s, p, o in g.triples((None, RDF.type, UNIV.Course)):
     occurred=False
@@ -56,6 +54,7 @@ for s, p, o in g.triples((None, RDF.type, UNIV.Course)):
     to_search = f"{Name}. {Description}"
     timer = 5
     count += 1
+    print(f"count:{count}")
     try:
         annotations = spotlight.annotate('https://api.dbpedia-spotlight.org/en/annotate', to_search, confidence=0.5,
                                          support=20)
@@ -79,7 +78,7 @@ for s, p, o in g.triples((None, RDF.type, UNIV.Course)):
 
     for i in g.objects(s, UNIV.hasTopic):
         print(i)
-        time.sleep(0.5)
+    # time.sleep(0.5)
 
 
 
@@ -277,87 +276,84 @@ g.add((Grade, UNIV.hasGradeValue, Literal("B")))
 g.add((Grade, UNIV.inCourse, URIRef("http://example.org/course/AHSC+223")))
 g.add((Grade, UNIV.inTerm, Literal("Summer 2020")))
 
-qres1 = g.query("""Select (Count (?s) as ?Count)
-    Where{
-        ?s ?p ?o
+# qres1 = g.query("""Select (Count (?s) as ?Count)
+#     Where{
+#         ?s ?p ?o
+#
+#     }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD})
+#
+#
+# qres2=g.query(""" Select (Count (DISTINCT ?s) as ?s) (Count (DISTINCT ?c) as ?c) (Count (DISTINCT ?t) as ?t)
+#     Where {
+#         ?s rdf:type univ:Student.
+#         ?c rdf:type univ:Course.
+#         ?t rdf:type univ:Topic.
+#     }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD})
+#
+# qres3 = g.query("""Select ?c ?n ?l
+#     Where{
+#         ?c rdf:type univ:Course.
+#         ?c univ:hasTopic ?t.
+#         ?t univ:topicName ?n.
+#         ?t owl:sameAs ?l.
+#     }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD, 'owl':OWL})
+#
+# qres4=g.query("""Select ?c ?v
+#     Where{
+#         stu:Joe univ:hasGrade ?g.
+#         ?g univ:inCourse ?c.
+#         ?g univ:hasGradeValue ?v.
+#         Filter(?v != 'F').
+#     }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD,'stu':s})
+#
+#
+#
+# qres5=g.query("""Select ?g ?s ?v
+#     Where {
+#         ?p univ:topicName 'library'.
+#         ?c univ:hasTopic ?p.
+#         ?g univ:inCourse ?c.
+#         ?s univ:hasGrade ?g.
+#         ?g univ:hasGradeValue ?v.
+#         Filter(?v != 'F')
+#     }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD})
+#
+#
+# qres6=g.query("""Select DISTINCT ?n
+#     Where {
+#         stu:Joe univ:hasGrade ?g.
+#         ?g univ:inCourse ?c.
+#         ?g univ:hasGradeValue ?v.
+#         ?c univ:hasTopic ?t.
+#         ?t univ:topicName ?n.
+#         Filter(?v != 'F')
+#     }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD,'stu':s})
+#
+#
+#
+# print("******Query***********")
+# for row in qres1:
+#     print(row)
+#
+# print("******Query***********")
+# for row in qres2:
+#     print(row)
+#
+# print("******Query***********")
+# for row in qres3:
+#     print(row)
+#
+# print("******Query***********")
+# for row in qres4:
+#     print(row)
+#
+# print("******Query***********")
+# for row in qres5:
+#     print(row)
+#
+# print("******Query***********")
+# for row in qres6:
+#     print(row)
 
-    }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD})
-
-
-qres2=g.query(""" Select (Count (DISTINCT ?s) as ?s) (Count (DISTINCT ?c) as ?c) (Count (DISTINCT ?t) as ?t)
-    Where {
-        ?s rdf:type univ:Student.
-        ?c rdf:type univ:Course.
-        ?t rdf:type univ:Topic.
-    }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD})
-
-qres3 = g.query("""Select ?c ?n ?l
-    Where{
-        ?c rdf:type univ:Course.
-        ?c univ:hasTopic ?t.
-        ?t univ:topicName ?n.
-        ?t owl:sameAs ?l.
-    }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD, 'owl':OWL})
-
-qres4=g.query("""Select ?c ?v
-    Where{
-        stu:Joe univ:hasGrade ?g.
-        ?g univ:inCourse ?c.
-        ?g univ:hasGradeValue ?v.
-        Filter(?v != 'F').
-    }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD,'stu':s})
-
-
-
-qres5=g.query("""Select ?g ?s ?v
-    Where {
-        ?p univ:topicName 'library'.
-        ?c univ:hasTopic ?p.
-        ?g univ:inCourse ?c.
-        ?s univ:hasGrade ?g.
-        ?g univ:hasGradeValue ?v.
-        Filter(?v != 'F')
-    }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD})
-
-
-qres6=g.query("""Select DISTINCT ?n
-    Where {
-        stu:Joe univ:hasGrade ?g.
-        ?g univ:inCourse ?c.
-        ?g univ:hasGradeValue ?v.
-        ?c univ:hasTopic ?t.
-        ?t univ:topicName ?n.
-        Filter(?v != 'F')
-    }""", initNs={'foaf': FOAF, 'univ': UNIV, 'rdfs': RDFS, 'rdf': RDF, 'xsd': XSD,'stu':s})
-
-
-
-print("******Query***********")
-for row in qres1:
-    print(row)
-
-print("******Query***********")
-for row in qres2:
-    print(row)
-
-print("******Query***********")
-for row in qres3:
-    print(row)
-
-print("******Query***********")
-for row in qres4:
-    print(row)
-
-print("******Query***********")
-for row in qres5:
-    print(row)
-
-print("******Query***********")
-for row in qres6:
-    print(row)
-
-
-
-
-g.serialize(destination='dataset.ttl', format='turtle')
-print(g.serialize(format="turtle"))
+g.serialize(destination='knowledgeBase.nt', format='nt')
+print(g.serialize(format="nt"))

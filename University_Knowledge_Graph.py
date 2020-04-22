@@ -7,7 +7,7 @@ from rdflib.namespace import DC, FOAF
 
 UNIV = Namespace("http://example.org/schema/")
 # FOCU=Namespace("http://focu.io/schema#")
-# FOCUDATA=Namespace("http://focu.io/data#")
+# FOCUDATA=Namespace("http://focu.io/data#")a
 g = Graph()
 g.add((UNIV.University, RDF.type, RDFS.Class))
 g.add((UNIV.University, RDFS.subClassOf, FOAF.Organization))
@@ -131,7 +131,7 @@ g.add((UNIV.hasGrade, RDFS.comment, Literal("Associating Student and Grade.", la
 # g.add((FOCUDATA.Aman, FOAF.lastName, Literal("Garg")))
 # g.add((FOCUDATA.Aman, FOAF.mbox, Literal("amangarg@gmail.com", datatype=XSD.anyURI)))
 # g.add((FOCUDATA.Aman, FOCU.isenrolledAt, FOCUDATA.Concordia))
-g.serialize(destination='output.ttl', format='turtle')
+g.serialize(destination='rdfSchema.ttl', format='turtle')
 print(g.serialize(format="turtle"))
 
 
